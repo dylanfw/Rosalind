@@ -4,6 +4,7 @@ import rosalind
 
 
 class TestRosalind(unittest.TestCase):
+
     def setUp(self):
         self.maxDiff = None
 
@@ -46,7 +47,7 @@ TGGGAACCTGCGGGCAGTAGGTGGAAT"""
         expected_data = {
             "Rosalind_6404": "CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG",
             "Rosalind_5959": "CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC",
-            "Rosalind_0808": "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"
+            "Rosalind_0808": "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT",
         }
         self.assertEqual(rosalind._parse_fasta(dataset), expected_data)
 
@@ -61,7 +62,9 @@ ATATCCATTTGTCAGCAGACACGC
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
 TGGGAACCTGCGGGCAGTAGGTGGAAT"""
         expected_output = "Rosalind_0808, 60.919540"
-        self.assertEqual(rosalind.greatest_gc_content(io.StringIO(dataset)), expected_output)
+        self.assertEqual(
+            rosalind.greatest_gc_content(io.StringIO(dataset)), expected_output
+        )
 
 
 if __name__ == "__main__":
