@@ -64,16 +64,16 @@ def rna_to_amino_acids(rna):
             continue
         if amino_acid == "*":
             break
-        amino_acids.append(RNA_CODON_TABLE[codon])
+        amino_acids.append(amino_acid)
     return "".join(amino_acids)
 
 
 def _parse_fasta(fasta):
     data = {}
     records = fasta.split(">")
-    records = records[
-        1:
-    ]  # First line should begin with >, so we eliminate the empty element
+
+    # First line should begin with >, so we eliminate the empty element
+    records = records[1:]
     for record in records:
         record = record.split("\n", 1)
         try:
